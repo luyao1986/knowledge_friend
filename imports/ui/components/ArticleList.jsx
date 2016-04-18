@@ -6,7 +6,10 @@ export class ArticleList extends React.Component {
     super(props);
   };
   render() {
-    let articles = [{title: "a1"}, {title: "a2"}];
+    let articles = [
+      {title: "a1", description: "d1", url:'url1'},
+      {title: "a2", description: "d2", url:'url2'},
+    ];
     return (
       <div>
         <Article content={articles[0]}/>

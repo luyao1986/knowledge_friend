@@ -6,7 +6,6 @@ class FeedListCollection extends Mongo.Collection {
     return super.insert(list, callback);
   }
   remove(selector, callback) {
-    Todos.remove({ listId: selector });
     return super.remove(selector, callback);
   }
 }
