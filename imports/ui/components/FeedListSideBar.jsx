@@ -1,5 +1,5 @@
 import React from 'react';
-import { FeedList } from './FeedList.jsx';
+import FeedListComponent from '../containers/FeedListContainer.jsx';
 import { insertFeed } from '../../api/feedlist/methods.js';
 
 export class FeedListSideBar extends React.Component {
@@ -18,7 +18,7 @@ export class FeedListSideBar extends React.Component {
         <form onSubmit={this.onSubmit.bind(this)}>
           <input type="text" placeholder="new feed here" ref="feedinput"/>
         </form>
-        <FeedList />
+        <FeedListComponent />
       </div>
     );
   };
