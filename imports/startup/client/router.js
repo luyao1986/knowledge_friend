@@ -1,7 +1,8 @@
 import React from 'react';
 import { mount } from 'react-mounter';
 import { FlowRouter } from 'meteor/kadira:flow-router';
-import { ApplicationLayout } from '../../ui/layout/ApplicationLayout.jsx';
+import { ApplicationLayout } from '../../ui/layouts/ApplicationLayout.jsx';
+import { FeedListLayout } from '../../ui/layouts/FeedListLayout.jsx';
 
 FlowRouter.route('/', {
   name: "home.page",
@@ -21,7 +22,7 @@ FlowRouter.route('/feedlist', {
   name: "feedlist.show",
   action: function(params, queryParams) {
     mount(ApplicationLayout, {
-      content: ()=>(<div>i am the content!</div>)
+      content: ()=>(<FeedListLayout />)
     });
   }
 });

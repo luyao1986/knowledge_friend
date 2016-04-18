@@ -8,7 +8,8 @@ export class ApplicationLayout extends React.Component {
     return (
       <div>
         <header>
-          this is header
+          <a href="/feedlist">Your Subscribes</a>
+          <a href="/knowledge">Your Knowldege</a>
         </header>
         <div>
           {this.props.content()}
