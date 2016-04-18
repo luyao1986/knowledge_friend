@@ -1,6 +1,6 @@
 import React from 'react';
 
-export class Reminder extends React.Component {
+export class Knowledge extends React.Component {
   constructor(props) {
     super(props);
   };

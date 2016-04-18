@@ -3,7 +3,7 @@ import { mount } from 'react-mounter';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { ApplicationLayout } from '../../ui/layouts/ApplicationLayout.jsx';
 import { FeedListLayout } from '../../ui/layouts/FeedListLayout.jsx';
-import { ReminderList } from '../../ui/components/ReminderList.jsx';
+import KnowledgeList from '../../ui/containers/KnowledgeListContainer.jsx';
 
 FlowRouter.route('/', {
   name: "home.page",
@@ -32,7 +32,7 @@ FlowRouter.route('/knowledge', {
   name: "knowledge.show",
   action: function(params, queryParams) {
     mount(ApplicationLayout, {
-      content: ()=>(<ReminderList />)
+      content: ()=>(<KnowledgeList />)
     });
   }
 });
