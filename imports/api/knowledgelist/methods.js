@@ -27,7 +27,7 @@ export const setKnowledgeReminder = new ValidatedMethod({
     validate: null,
     run(knowledge) {
         console.log("update knowledge reminder of:", knowledge);
-        let updates = {reviewed:false, reminder:true};
+        let updates = {reviewed:false, reminder:true, stage: knowledge.stage+1};
         return KnowledgeList.update({_id: knowledge._id}, {$set: updates});
     },
 });
