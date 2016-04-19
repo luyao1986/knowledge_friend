@@ -25,3 +25,4 @@ mdg:validation-error
 dburles:collection-helpers
 check
 react-meteor-data
+percolate:synced-cron

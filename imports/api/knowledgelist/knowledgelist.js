@@ -8,6 +8,9 @@ class KnowledgeListCollection extends Mongo.Collection {
     remove(selector, callback) {
         return super.remove(selector, callback);
     }
+    update(selector, callback) {
+        return super.update(selector, callback);
+    }
 }
 
 export const KnowledgeList = new KnowledgeListCollection('knowledgelist');
@@ -23,9 +26,10 @@ KnowledgeList.schema = new SimpleSchema({
     title: { type: String },
     description: { type: String },
     url: { type: String, defaultValue: null},
-    updatedAt: { type: Date, defaultValue: new Date()},
+    reviewedAt: { type: Date, defaultValue: new Date()},
     stage: { type: Number, defaultValue: 0, max:7},
-    status: { type: Boolean, defaultValue: true},
+    reviewed: { type: Boolean, defaultValue: true},
+    reminder: { type: Boolean, defaultValue: false},
 });
 
 KnowledgeList.attachSchema(KnowledgeList.schema);
@@ -35,15 +39,16 @@ KnowledgeList.publicFields = {
     url: 1,
     description: 1,
     stage: 1,
-    status: 1,
-    updatedAt: 1,
+    reviewed: 1,
+    reviewedAt: 1,
+    reminder: 1,
 };
 
 KnowledgeList.helpers({
     hasDone() {
-        return this.stage==7 && this.status;
+        return this.stage==7 && this.reviewed;
     },
     isReminder() {
-        return this.status;
+        return this.reminder;
     },
 });
