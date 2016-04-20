@@ -4,7 +4,7 @@ import { createContainer } from 'meteor/react-meteor-data';
 import { FeedListComponent } from '../components/FeedListComponent.jsx';
 
 export default createContainer(() => {
-    const feedlistHandle = Meteor.subscribe('feedlist');
+    const feedlistHandle = Meteor.subscribe('feedlist.all');    //always use module.* as publication name
     const loading = !feedlistHandle.ready();
     return {
         loading,

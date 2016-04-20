@@ -13,7 +13,7 @@ class KnowledgeListCollection extends Mongo.Collection {
     }
 }
 
-export const KnowledgeList = new KnowledgeListCollection('knowledgelist');
+export const KnowledgeList = new KnowledgeListCollection('KnowledgeList');  //define a collection/table using uppercase
 
 KnowledgeList.deny({
     insert() { return true; },
@@ -26,7 +26,7 @@ KnowledgeList.schema = new SimpleSchema({
     title: { type: String },
     description: { type: String },
     url: { type: String, defaultValue: null},
-    reviewedAt: { type: Date, defaultValue: new Date()},
+    reviewedAt: { type: Date, defaultValue: new Date()},    //camelCased field names
     stage: { type: Number, defaultValue: 0, max:7},
     reviewed: { type: Boolean, defaultValue: true},
     reminder: { type: Boolean, defaultValue: false},

@@ -10,7 +10,7 @@ class FeedListCollection extends Mongo.Collection {
   }
 }
 
-export const FeedList = new FeedListCollection('feedlist');
+export const FeedList = new FeedListCollection('FeedList');
 
 FeedList.deny({
   insert() { return true; },
