@@ -1,5 +1,6 @@
 import React from 'react';
 import { Article } from './Article.jsx';
+import { ListGroup } from 'react-bootstrap';
 
 export class ArticleList extends React.Component {
   constructor(props) {
@@ -11,10 +12,10 @@ export class ArticleList extends React.Component {
       {title: "a2", description: "d2", url:'url2'},
     ];
     return (
-      <div>
+      <ListGroup>
         <Article content={articles[0]}/>
         <Article content={articles[1]}/>
-      </div>
+      </ListGroup>
     );
   };
 }

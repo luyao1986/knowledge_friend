@@ -4,7 +4,7 @@ import { createContainer } from 'meteor/react-meteor-data';
 import { KnowledgeListComponent } from '../components/KnowledgeListComponent.jsx';
 
 export default createContainer(() => {
-    const knowledgelistHandle = Meteor.subscribe('knowledgelist.all');
+    const knowledgelistHandle = Meteor.subscribe('knowledgelist.reminder');
     const loading = !knowledgelistHandle.ready();
     return {
         loading,

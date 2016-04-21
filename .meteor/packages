@@ -26,3 +26,4 @@ dburles:collection-helpers
 check
 react-meteor-data
 percolate:synced-cron
+twbs:bootstrap

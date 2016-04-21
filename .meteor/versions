@@ -73,6 +73,7 @@ static-html@1.0.6
 templating-tools@1.0.3
 tmeasday:check-npm-versions@0.2.0
 tracker@1.0.12
+twbs:bootstrap@3.3.6
 ui@1.0.10
 underscore@1.0.7
 url@1.0.8

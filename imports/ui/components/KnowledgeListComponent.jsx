@@ -1,5 +1,6 @@
 import React from 'react';
 import { Knowledge } from './Knowledge.jsx';
+import { Grid, Row } from 'react-bootstrap';
 
 export class KnowledgeListComponent extends React.Component {
   constructor(props) {
@@ -10,9 +11,11 @@ export class KnowledgeListComponent extends React.Component {
       return <Knowledge key={knowledge._id} content={knowledge}/>
     });
     return (
-        <ol>
-          {knowledgelist}
-        </ol>
+        <Grid>
+          <Row>
+              {knowledgelist}
+          </Row>
+        </Grid>
     );
   };
 }

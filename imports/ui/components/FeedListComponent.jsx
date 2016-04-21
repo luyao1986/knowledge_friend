@@ -1,4 +1,5 @@
 import React from 'react';
+import { ListGroup, ListGroupItem } from 'react-bootstrap';
 
 export class FeedListComponent extends React.Component {
   constructor(props) {
@@ -6,12 +7,12 @@ export class FeedListComponent extends React.Component {
   };
   render() {
     let feedlist = this.props.feedlist.map( function(feed) {
-      return <li key={feed._id}>{feed.category}</li>
+      return <ListGroupItem key={feed._id} href={`/feedlist/${feed.category}`} onClick={console.log("call feed api")}>{feed.category}</ListGroupItem>
     });
     return (
-        <ol>
+        <ListGroup>
           {feedlist}
-        </ol>
+        </ListGroup>
     );
   };
 }
