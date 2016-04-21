@@ -12,7 +12,7 @@ export class ApplicationLayout extends React.Component {
           <Navbar inverse>
               <Navbar.Header>
                   <Navbar.Brand>
-                      <a href="#">Home</a>
+                      <a href="/">Home</a>
                   </Navbar.Brand>
                   <Navbar.Toggle />
               </Navbar.Header>
