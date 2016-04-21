@@ -1,6 +1,7 @@
 import React from 'react';
 import FeedListComponent from '../containers/FeedListContainer.jsx';
 import { insertFeed } from '../../api/feedlist/methods.js';
+import { FlowRouter } from 'meteor/kadira:flow-router';
 
 export class FeedListSideBar extends React.Component {
   constructor(props) {
@@ -10,7 +11,9 @@ export class FeedListSideBar extends React.Component {
     e.preventDefault();
     let newfeed = this.refs.feedinput.value;
     console.log("insert new feed: ", newfeed);
-    insertFeed.call({category:newfeed, url:"http://test1.com"});
+    let retID = insertFeed.call({category:newfeed, url:"http://test1.com"});
+    this.refs.feedinput.value = "";
+    FlowRouter.redirect(`/feedlist/${retID}`);
   };
   render() {
     return (

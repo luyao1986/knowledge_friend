@@ -7,7 +7,7 @@ export class FeedListComponent extends React.Component {
   };
   render() {
     let feedlist = this.props.feedlist.map( function(feed) {
-      return <ListGroupItem key={feed._id} href={`/feedlist/${feed.category}`} onClick={console.log("call feed api")}>{feed.category}</ListGroupItem>
+      return <ListGroupItem key={feed._id} href={`/feedlist/${feed._id}`} onClick={console.log("call feed api")}>{feed.category}</ListGroupItem>
     });
     return (
         <ListGroup>

@@ -14,7 +14,7 @@ export class Article extends React.Component {
 
   render() {
       const tooltip = (
-          <Tooltip>put this item into your knowledge list.</Tooltip>
+          <Tooltip id="addKnowledge">put this item into your knowledge list.</Tooltip>
       );
     return (
         <div className="panel panel-primary">

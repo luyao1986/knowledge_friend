@@ -30,6 +30,17 @@ FlowRouter.route('/feedlist', {
   }
 });
 
+FlowRouter.route('/feedlist/:feedid', {
+  name: "feedlist.show",
+  action: function(params, queryParams) {
+    const feedid = params.feedid;
+    console.log(`mount /feedlist/${feedid}`);
+    mount(ApplicationLayout, {
+      content: ()=>(<FeedListLayout feedID={feedid}/>)
+    });
+  }
+});
+
 FlowRouter.route('/knowledge', {
   name: "knowledge.show",
   action: function(params, queryParams) {

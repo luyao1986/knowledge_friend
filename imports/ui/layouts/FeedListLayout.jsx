@@ -11,7 +11,7 @@ export class FeedListLayout extends React.Component {
     return (
       <Grid fluid={true}>
           <Col sm={2} md={2} visibleXsBlock={true} smHidden={true}> <FeedListSideBar /> </Col>
-          <Col sm={10} md={10}> <ArticleList /> </Col>
+          <Col sm={10} md={10}> <ArticleList feedID={this.props.feedID} /> </Col>
       </Grid>
     );
   };
