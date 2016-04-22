@@ -27,3 +27,4 @@ check
 react-meteor-data
 percolate:synced-cron
 twbs:bootstrap
+u2622:persistent-session

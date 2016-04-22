@@ -6,6 +6,7 @@ import { KnowledgeListComponent } from '../components/KnowledgeListComponent.jsx
 export default createContainer(() => {
     const knowledgelistHandle = Meteor.subscribe('knowledgelist.reminder');
     const loading = !knowledgelistHandle.ready();
+
     return {
         loading,
         knowledgelist: KnowledgeList.find().fetch() || [],

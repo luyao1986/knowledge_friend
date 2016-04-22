@@ -1,6 +1,6 @@
 import React from 'react';
-import { Nav, NavItem, Navbar} from 'react-bootstrap';
-
+import { Nav, NavItem, Navbar, Badge } from 'react-bootstrap';
+import { KnowledgeList } from '../../api/knowledgelist/knowledgelist.js';
 
 export class ApplicationLayout extends React.Component {
   constructor(props) {
@@ -19,7 +19,7 @@ export class ApplicationLayout extends React.Component {
               <Navbar.Collapse>
                   <Nav>
                       <NavItem eventKey={1} href="/feedlist">Your Subscribes</NavItem>
-                      <NavItem eventKey={2} href="/knowledge">Your Knowldege</NavItem>
+                      <NavItem eventKey={2} href="/knowledge">Your Knowldege<Badge>{KnowledgeList.find({reminder:true}).count()}</Badge></NavItem>
                   </Nav>
               </Navbar.Collapse>
           </Navbar>

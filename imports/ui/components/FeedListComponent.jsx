@@ -5,9 +5,6 @@ export class FeedListComponent extends React.Component {
   constructor(props) {
     super(props);
   };
-  updateState(feed) {
-    this.props.updateState(feed);
-  };
   render() {
     if(this.props.loading) {
       console.log("still loading feedlist");
