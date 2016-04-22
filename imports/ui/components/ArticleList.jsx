@@ -7,25 +7,15 @@ export class ArticleList extends React.Component {
   constructor(props) {
     super(props);
     this.state = { // define this.state in constructor
-      articles: []
+      articles: [{title: `${faker.name.jobTitle()}:${this.props.feed}`, description: faker.name.jobDescriptor(), url: faker.internet.url()}],
+      feed: this.props.feed,
     }
   };
-
-  componentDidMount() {
-    this.serverRequest = $.get(this.props.feedID, function (result) {
-      this.setState({
-        articles: [{title: `${faker.name.jobTitle()}:${this.props.feedID}`, description: faker.name.jobDescriptor(), url: faker.internet.url()}]
-      });
-    }.bind(this));
-    console.log("componentDidMount");
-  };
-  componentWillUnmount() {
-    console.log("componentWillUnmount");
-    this.serverRequest.abort();
-  };
+  //TODO construtor can not be called when we use different props, so bug above
   //TODO need to call ws to get real data
 
   render() {
+    console.log("ArticleList render ", this.props.feed);
     let articleList = this.state.articles.map(function(article) {
       return <Article key={article.title} content={article}/>;
     });

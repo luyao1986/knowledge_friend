@@ -13,7 +13,7 @@ export class FeedListSideBar extends React.Component {
     console.log("insert new feed: ", newfeed);
     let retID = insertFeed.call({category:newfeed, url:"http://test1.com"});
     this.refs.feedinput.value = "";
-    FlowRouter.redirect(`/feedlist/${retID}`);
+    this.props.updateState(retID);
   };
   render() {
     return (
@@ -21,7 +21,7 @@ export class FeedListSideBar extends React.Component {
         <form onSubmit={this.onSubmit.bind(this)}>
           <input type="text" placeholder="new feed here" ref="feedinput"/>
         </form>
-        <FeedListComponent />
+        <FeedListComponent updateState={this.props.updateState} />
       </div>
     );
   };

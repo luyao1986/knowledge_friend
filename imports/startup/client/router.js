@@ -2,14 +2,14 @@ import React from 'react';
 import { mount } from 'react-mounter';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { ApplicationLayout } from '../../ui/layouts/ApplicationLayout.jsx';
-import { FeedListLayout } from '../../ui/layouts/FeedListLayout.jsx';
+import { SubscribesPage } from '../../ui/pages/SubscribesPage.jsx';
 import { HomePage } from '../../ui/components/HomePage.jsx';
 import KnowledgeList from '../../ui/containers/KnowledgeListContainer.jsx';
 
 FlowRouter.route('/', {
   name: "home.page",
   triggersEnter: [function(context, redirect) {
-    console.log("redirect to /feedlist");
+    console.log("enter /");
   }],
   action: function(params, queryParams) {
     mount(ApplicationLayout, {
@@ -25,18 +25,7 @@ FlowRouter.route('/feedlist', {
   name: "feedlist.show",
   action: function(params, queryParams) {
     mount(ApplicationLayout, {
-      content: ()=>(<FeedListLayout />)
-    });
-  }
-});
-
-FlowRouter.route('/feedlist/:feedid', {
-  name: "feedlist.show",
-  action: function(params, queryParams) {
-    const feedid = params.feedid;
-    console.log(`mount /feedlist/${feedid}`);
-    mount(ApplicationLayout, {
-      content: ()=>(<FeedListLayout feedID={feedid}/>)
+      content: ()=>(<SubscribesPage />)
     });
   }
 });
