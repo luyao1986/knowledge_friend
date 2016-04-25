@@ -5,7 +5,11 @@ import { KnowledgeList } from './knowledgelist.js';
 
 export const insertKnowledge = new ValidatedMethod({
     name: 'knowledgelist.insert',
-    validate: null,
+    validate: new SimpleSchema({
+        title: { type: String },
+        description: { type: String },
+        url: { type: String },
+    }).validator(),
     run(knowledge) {
         console.log("add knowledge:", knowledge);
         return KnowledgeList.insert(knowledge);

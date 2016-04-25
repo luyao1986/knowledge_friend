@@ -25,7 +25,7 @@ KnowledgeList.deny({
 KnowledgeList.schema = new SimpleSchema({
     title: { type: String },
     description: { type: String },
-    url: { type: String, defaultValue: null},
+    url: { type: String},
     reviewedAt: { type: Date, defaultValue: new Date()},    //camelCased field names
     stage: { type: Number, defaultValue: 0, max:7},
     reviewed: { type: Boolean, defaultValue: true},
