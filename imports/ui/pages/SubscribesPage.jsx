@@ -7,13 +7,14 @@ import { Session } from 'meteor/session';
 export class SubscribesPage extends React.Component {
   constructor(props) {
     super(props);
+    console.log("we can use previous persistent feed:", Session.get("feed"));
     this.state = { // define this.state in constructor
-      feed: Session.get("previousFeed")
-    }
+      feed: Session.get("feed")
+    };
     this.updateState = this.updateState.bind(this);
   };
   updateState(feed) {
-    Session.setPersistent("previousFeed", feed);
+    Session.setPersistent("feed", feed);
     console.log("updateState of",  feed);
     this.setState({feed});
   };

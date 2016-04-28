@@ -1,10 +1,10 @@
 import React from 'react';
 import { mount } from 'react-mounter';
 import { FlowRouter } from 'meteor/kadira:flow-router';
-import { ApplicationLayout } from '../../ui/layouts/ApplicationLayout.jsx';
+import ApplicationLayout from '../../ui/layouts/ApplicationLayout.jsx';
 import { SubscribesPage } from '../../ui/pages/SubscribesPage.jsx';
 import { HomePage } from '../../ui/components/HomePage.jsx';
-import KnowledgeList from '../../ui/containers/KnowledgeListContainer.jsx';
+import { KnowledgeList } from '../../ui/components/KnowledgeList.jsx';
 
 FlowRouter.route('/', {
   name: "home.page",
@@ -13,7 +13,7 @@ FlowRouter.route('/', {
   }],
   action: function(params, queryParams) {
     mount(ApplicationLayout, {
-      content: ()=>(<HomePage />)
+      content: (loading, knowledgelist)=>(<HomePage />)
     });
   },
   triggersExit: [function(context, redirect) {
@@ -25,7 +25,7 @@ FlowRouter.route('/feedlist', {
   name: "feedlist.show",
   action: function(params, queryParams) {
     mount(ApplicationLayout, {
-      content: ()=>(<SubscribesPage />)
+      content: (loading, knowledgelist)=>(<SubscribesPage />)
     });
   }
 });
@@ -34,7 +34,7 @@ FlowRouter.route('/knowledge', {
   name: "knowledge.show",
   action: function(params, queryParams) {
     mount(ApplicationLayout, {
-      content: ()=>(<KnowledgeList />)
+      content: (loading, knowledgelist)=>(<KnowledgeList loading={loading} knowledgelist={knowledgelist} />)
     });
   }
 });

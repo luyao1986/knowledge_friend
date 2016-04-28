@@ -3,12 +3,11 @@ import { Knowledge } from './Knowledge.jsx';
 import { Grid, Row } from 'react-bootstrap';
 import { AddKnowledgeModal } from './AddKnowledgeModal.jsx';
 
-export class KnowledgeListComponent extends React.Component {
-  constructor(props) {
-    super(props);
-  };
-  render() {
-    let knowledgelist = this.props.knowledgelist.map( function(knowledge) {
+export const KnowledgeList = ({loading, knowledgelist}) => {
+    if(loading) {
+        return <div>loading...</div>
+    }
+    let knowledges = knowledgelist.map( function(knowledge) {
       return <Knowledge key={knowledge._id} content={knowledge}/>
     });
     return (
@@ -16,15 +15,9 @@ export class KnowledgeListComponent extends React.Component {
             <AddKnowledgeModal />
             <Grid>
                 <Row>
-                    {knowledgelist}
+                    {knowledges}
                 </Row>
             </Grid>
         </div>
     );
-  };
 }
-
-KnowledgeListComponent.propTypes = {
-  knowledgelist: React.PropTypes.array,
-  loading: React.PropTypes.bool,
-};
